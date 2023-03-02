@@ -1,0 +1,58 @@
+{% extends 'site/base.html' %}
+{% block content %}
+
+
+{% load static %}
+<div class="container">
+	<br/>
+<div class="row row-cols-1 row-cols-md-3 d-flex">
+  <div class="col mb-4">
+    <div class="card shadow">
+      <img src="{% static 'images/kontakt/logo_clown2.png' %}" class="card-img-top" alt="...">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title mt-auto">DIVADLO/STANDUP/MODEROVÁNÍ</h5>
+        <p class="card-text ">Filip Teller<br/>tel: +420 723 839 753<br>email: filip.teller@gmail.com </p>
+	
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4 d-flex">
+    <div class="card shadow">
+      <img src="{% static 'images/kontakt/logo_agent.png' %}" class="card-img-top" alt="...">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">TV & FILM</h5>
+        <p class="card-text mt-auto"> Alexandra Balaštíková<br>tel: +420 776 052 649<br> email: alexandra@actory.cz</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4 d-flex">
+    <div class="card shadow">
+      <img src="{% static 'images/kontakt/logo_bell2.png' %}" class="card-img-top" alt="..."><br>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title"><br>SUBSCRIBE NEWSLETTER<br></h5>
+        
+ 			<div class="container mt-auto">
+    			<div class="row">
+      				<div class="col-sm-12">
+        				<div class="subscribe_now mt-auto">
+        					{% csrf_token %}
+          					<form class="subscribe_form">
+            				<div class="input-group">
+               					<input type="text" class="form-control" name="email" placeholder="Enter your email">
+               					<span class="input-group-btn">
+                    			<button class="btn btn-dark mt-auto" type="button">subscribe</button>
+               					</span>
+            				</div>
+          					</form>
+        				</div>
+      				</div>
+    			</div>
+  			</div>
+		</div>
+      </div>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}

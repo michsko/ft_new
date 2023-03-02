@@ -1,0 +1,84 @@
+{% load static %}
+<nav class="navbar navbar-expand-md bg-white">
+  <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home'%}">
+      <img src="{% static 'images/FT_logo.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      Filip Teller
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-2" style="width: 900px;">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">O MNĚ</a>
+        </li>
+      
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'divadlo' %}">DIVADLO</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'standup' %}">STAND UP COMEDY</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'moderation' %}">MODEROVÁNÍ</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'film' %}">TV & FILM / SHOWREEL</a>
+          </li>
+      
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            PROGRAM
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'program' %}">Program</a></li>
+            <li><a class="dropdown-item" href="{% url 'program' %}">Upravit Program</a></li>
+             <li><a class="dropdown-item" href="{% url 'event_add' %}">Přidat do Programu</a></li>
+            <li><a class="dropdown-item" href="{% url 'program' %}">Vymazat z Programu</a></li>
+          </ul>
+        </li>
+             <li class="nav-item">
+          <a class="nav-link" href="{% url 'kontakt' %}">KONTAKT</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout_user' %}">Odhlasit</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'program' %}">PROGRAM</a>
+        </li>
+             <li class="nav-item">
+          <a class="nav-link" href="{% url 'kontakt' %}">KONTAKT</a>
+        </li>
+      </ul>
+         
+        <ul class="navbar-nav navbar-right gap-3">
+              <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-gray btn-floating m-1" href="https://www.facebook.com/TellerFilip/" role="button"
+        target="_blank"><i class="fa fa-facebook"></i
+      ></a>
+
+       <!-- Instagram -->
+      <a class="btn btn-outline-gray btn-floating m-1" href="https://www.instagram.com/filipteller/?hl=cs" role="button"
+      target="_blank"><i class="fa fa-instagram"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-gray btn-floating m-1" href="https://www.youtube.com/@filipteller2058/videos" target="_blank" role="button"
+        ><i class="fa fa-youtube"></i
+      ></a>
+           
+    </section>
+        </ul>
+      
+
+        {% endif %}
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+

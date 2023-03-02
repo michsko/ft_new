@@ -1,0 +1,37 @@
+{% extends 'site/base.html' %}
+{% block content %}
+{% load static %}
+
+
+	
+<div class="container ">
+<br/><br/><br/>
+<div class="row">
+    {% for event in program %}
+  <div class="col mb-4 d-flex align-items-stretch">
+<div class="card shadow" style="width: 18rem;">
+  <img src="{% static 'images/ticket.png' %}" class="card-img-top" alt="ticket">
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">{{ event.name }}</h3>
+    <h6 class="card-title">{{ event.date }}</h6>
+    <h6 class="card-title">{{ event.venue }}</h6>
+    <p class="card-text">{{ event.description }}</p>
+    
+     {% if user.is_authenticated %}
+            <div align="left">
+                <a href="{% url 'event_update' event.id %}" class="btn btn-outline-info">Upravit</a>&nbsp;&nbsp;&nbsp;
+                <a href="{%url 'event_delete' event.id %}" class="btn btn-outline-danger">Smazat</a>&nbsp;&nbsp;&nbsp; 
+               
+            </div><br/>
+        </div>
+            {% else %}
+            <a href="{{event.tickets}}"  target="_blank" class="btn btn-outline-primary mt-auto">Vstupenky</a>
+            </div>
+            {% endif %}
+            </div>
+		</div>
+        {% endfor %}
+	</div>
+</div>
+
+{% endblock %}
